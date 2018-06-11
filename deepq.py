@@ -13,8 +13,6 @@ class DeepQNetwork:
                  policy,
                  gamma,
                  target_update_freq,
-                 num_burn_in,
-                 train_freq,
                  batch_size):
 		self.qnet_online = qnet_online
 		self.qnet_target = qnet_target
@@ -24,12 +22,8 @@ class DeepQNetwork:
 		self.gamma = gamma
 		self.policy = policy
 		self.target_update_freq = target_update_freq
-		self.num_burn_in = num_burn_in
-		self.train_freq = train_freq
 		self.batch_size = batch_size
 		self.num_actions = 4
-		self.weights = []
-		self.summary = []
 
  	def select_action(self, state):
  		zero_state = np.zeros(state.shape)  	

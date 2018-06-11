@@ -15,10 +15,8 @@ ds = 5
 gamma = 0.99
 learning_rate = 0.001
 max_episode_length = 1000
-num_burn_in = 10
 num_iterations = 100000
 target_update_freq = 100
-train_freq = 10
 
 # Initialize Tensorflow session
 config = tf.ConfigProto()
@@ -53,5 +51,13 @@ qnet_test.build_network()
 session.run(tf.global_variables_initializer())
 
 # make the dqn agent
-agent = deepq.DeepQNetwork(qnet_online, qnet_target, qnet_test, prep, mem, pol, gamma, target_update_freq, num_burn_in, train_freq, batch_size)
+agent = deepq.DeepQNetwork(qnet_online = qnet_online, 
+						   qnet_target = qnet_target, 
+						   qnet_test = qnet_test, 
+						   preprocessor = prep, 
+						   memory = mem, 
+						   policy = pol, 
+						   gamma = gamma, 
+						   target_update_freq = target_update_freq, 
+						   batch_size = batch_size)
 agent.fit(env = env, num_iterations = num_iterations, max_episode_length = max_episode_length)
