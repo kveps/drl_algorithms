@@ -1,4 +1,4 @@
-# drl_algorithms
+# Deep RL algorithms
 
 This is starting off as code I write towards https://blog.openai.com/requests-for-research-2/. The repo currently has
 
